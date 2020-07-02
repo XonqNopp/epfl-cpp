@@ -1,0 +1,43 @@
+
+	- Shéma des héritages et encapsulations de notre projet -
+
+
+
+                   :                     :
+                ___:___              ____:____            _________
+               |  GUI  |            | parseur |..........| erreurs |
+               |___.___|            |_________|          |_________|
+                   :
+                   :
+              _____:______
+             | dessinable |
+             |__________._|                      ________
+                   |    :.......................| camera |
+                   |                            |_____.__|
+               ____|____                              :
+              | univers |                             :
+              |_______._|                             :
+                      :.........                      :
+                               :                      :
+ ___________               ____:____             _____:_____
+| couleur4d |.............|  corps  |...........| vecteur3d |
+|___________|             |_______._|           |___________|              ________
+                               |  :................................/ /....| OpenGL |
+      _________________________|______________                            |________|
+ ____|___    ____|____    _____|_____    _____|_____
+| etoile |  | planete |  | satellite |  | asteroide |
+|________|  |_________|  |___________|  |___________|
+
+
+	- Legende -
+
+Le nom dans "fichier" représente a la fois "fichier.cc" et "fichier.h"
+
+OpenGL est la librairie de dessin graphique utilisee.
+
+  :
+..:..   encapsulation
+
+
+  |
+--|--   héritage

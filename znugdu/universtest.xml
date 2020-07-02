@@ -1,0 +1,81 @@
+<univers>
+	<camera>
+		<oeil>0.0 0.0 -25.0</oeil>
+		<visee>0.0 0.0 1.0</visee>
+		<verticale>0.0 1.0 0.0</verticale>
+	</camera>
+	<temps>-1</temps>
+	<pasdetemps>1.0</pasdetemps>
+	<corps>
+		<type>etoile</type>
+		<nom>Soleil</nom>
+		<position>0.0 0.0 0.0</position>
+		<vitesse>0.0 0.0 0.0</vitesse>
+		<acceleration>0.0 0.0 0.0</acceleration>
+		<masse>1e10</masse>
+		<couleur>1.0 0.8 0.0 1.0</couleur>
+	</corps>
+	<corps>
+		<type>planete</type>
+		<nom>Terre</nom>
+		<position>2.0 0.0 0.0</position>
+		<vitesse>0.0 0.5 0.0</vitesse>
+		<acceleration>0.0 0.0 0.0</acceleration>
+		<masse>1e6</masse>
+		<couleur>0.0 0.5 1.0 1.0</couleur>
+	</corps>
+	<corps>
+		<type>satellite</type>
+		<nom>Lune</nom>
+		<position>2.2 0.0 0.0</position>
+		<vitesse>0.0 0.5 0.0</vitesse>
+		<acceleration>0.0 0.0 0.0</acceleration>
+		<masse>1e3</masse>
+		<couleur>0.0 0.8 0.2 1.0</couleur>
+	</corps>
+	<corps>
+		<type>planete</type>
+		<nom>Mercure</nom>
+		<position>0.0 1.5 0.0</position>
+		<vitesse>0.05 0.0 0.7</vitesse>
+		<acceleration>0.0 0.0 0.0</acceleration>
+		<masse>1e4</masse>
+		<couleur>0.7 0.7 0.7 1.0</couleur>
+	</corps>
+	<corps>
+		<type>planete</type>
+		<nom>Venus</nom>
+		<position>0.0 0.0 1.5</position>
+		<vitesse>0.7 0.0 0.0</vitesse>
+		<acceleration>0.0 0.0 0.0</acceleration>
+		<masse>1e5</masse>
+		<couleur>1.0 1.0 1.0 1.0</couleur>
+	</corps>
+	<corps>
+		<type>planete</type>
+		<nom>Mars</nom>
+		<position>-3.0 0.0 0.0</position>
+		<vitesse>0.0 0.5 0.0</vitesse>
+		<acceleration>0.0 0.0 0.0</acceleration>
+		<masse>1e6</masse>
+		<couleur>1.0 0.0 0.0 1.0</couleur>
+	</corps>
+	<corps>
+		<type>planete</type>
+		<nom>Jupiter</nom>
+		<position>8.0 0.0 0.0</position>
+		<vitesse>0.0 0.2 0.0</vitesse>
+		<acceleration>0.0 0.0 0.0</acceleration>
+		<masse>1e8</masse>
+		<couleur>0.7 0.5 0.3 1.0</couleur>
+	</corps>
+	<corps>
+		<type>planete</type>
+		<nom>Saturne</nom>
+		<position>0.0 9.0 0.0</position>
+		<vitesse>0.05 0.0 0.2</vitesse>
+		<acceleration>0.0 0.0 0.0</acceleration>
+		<masse>1e7</masse>
+		<couleur>1.0 0.6 0.0 1.0</couleur>
+	</corps>
+</univers>

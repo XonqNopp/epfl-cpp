@@ -1,0 +1,163 @@
+Donnes officielles:
+
+Soleil
+	Masse: 1.989e30
+	Rayon: 6.96e8
+	
+Mercure
+	Delta: 5.79e10
+	Masse: 3.302e23
+	Rayon: 2.44e6
+	Vitesse: 4.789e4
+	
+Venus
+	Delta: 1.082e11
+	Masse: 4.869e24
+	Rayon: 6.0518e6
+	Vitesse: 3.502e4
+	
+Terre
+	Delta: 1.496e11
+	Masse: 5.972e24
+	Rayon: 6.378e6
+	Vitesse: 2.979e4
+	
+	Lune
+		Delta: 3.84404e8
+		Masse: 7.349e22
+		Rayon: 1.735e6
+		Vitesse: 1.023e3
+				
+Mars
+	Delta: 2.279e11
+	Masse: 6.419e23
+	Rayon: 3.373e6
+	Vitesse: 2.413e4
+	
+Jupiter
+	Delta: 7.783e11
+	Masse: 1.8986e27
+	Rayon: 7.1492e7
+	Vitesse: 1.307e4
+
+	Io
+		Delta: 4.216e8
+		Masse: 8.933e22
+		Rayon: 1.8213e6
+		Vitesse: 
+		
+	Europa
+		Masse: 4.797e22
+		Rayon: 1.565e6
+		Delta: 6.709e8
+		Vitesse: 
+	
+	Ganymede
+		Masse: 1.482e23
+		Rayon: 2.634e6
+		Delta: 1.07e9
+		Vitesse: 
+	
+	Callisto
+		Masse: 1.076e23
+		Rayon: 2.40e6
+		Delta: 1.883e9
+		Vitesse: 
+	
+Saturne
+	Delta: 1.427e12
+	Masse: 5.6846e26
+	Rayon: 5.4364e7
+	Vitesse: 9.66e3
+	
+	Mimas
+		Masse: 3.75e19
+		Rayon: 1.988e5
+		Delta: 1.8552e8
+		Vitesse: 
+	
+	Enceladus
+		Masse: 7.3e19
+		Rayon: 2.491e5
+		Delta: 2.3802e8
+		Vitesse: 
+	
+	Tethys
+		Masse: 6.22e20
+		Rayon: 5.299e5
+		Delta: 2.9466e8
+		Vitesse: 
+	
+	Dione
+		Masse: 1.052e21
+		Rayon: 5.6e5
+		Delta: 3.774e8
+		Vitesse: 
+	
+	Rhea
+		Masse: 2.31e21
+		Rayon: 7.64e5
+		Delta: 5.2704e8
+		Vitesse: 
+	
+	Titan
+		Masse: 1.3455e23
+		Rayon: 2.575e6
+		Delta: 1.22185e9
+		Vitesse: 
+	
+	Iapetus
+		Masse: 1.59e21
+		Rayon: 7.18e5
+		Delta: 3.5613e9
+		Vitesse: 
+	
+Uranus
+	Delta: 2.8696e12
+	Masse: 8.683e25
+	Rayon: 2.4973e7
+	Vitesse: 5.48e3
+	
+	Umbriel
+		Masse: 1.172e21
+		Rayon: 5.847e5
+		Delta: 2.66e8
+		Vitesse: 
+	
+	Titania
+		Masse: 3.527e21
+		Rayon: 7.889e5
+		Delta: 4.358e8
+		Vitesse: 
+	
+	Oberon
+		Masse: 3.014e21
+		Rayon: 7.614e5
+		Delta: 5.826e8
+		Vitesse: 
+	
+Neptune
+	Delta: 4.4966e12
+	Masse: 1.0243e26
+	Rayon: 2.4766e7
+	Vitesse: 4.75e3
+	
+	Triton
+		Masse: 2.147e22
+		Rayon: 1.3526e6
+		Delta: 3.5476e8
+		Vitesse: 
+		
+	
+Pluton
+	Delta: 5.9135e12
+	Masse: 1.25e21
+	Rayon: 1.137e6
+	Vitesse: 4.75e3
+	
+	Charon
+		Delta: 1.9405e6
+		Masse: 1.7e21
+		Rayon: 5.86e5
+		Vitesse: 
+		

@@ -1,0 +1,82 @@
+<!-- On essaie... -->
+
+<univers>			
+      <pasdetemps>
+      1.0
+      </pasdetemps>
+
+      <!-- Point de vue ini
+ti	a
+l 	-->
+      <camera>
+          <oeil>
+              0.0 0.0 20.0
+          </oeil>
+          <visee>
+              0.0 0.0 -1.0
+          </visee>
+          <verticale>
+              0.0 1.0 0.0
+          </verticale>
+      </camera>
+
+      <!-- Premier corps -->
+      <corps>
+          <type>
+              eto	ile
+          </type>
+          <position>
+zgrlmf uznugd praaaaaaaaaaa<!-- 0.0 0.0 0.0-->
+          </position>
+          <vitesse>
+              0.0173205080756888 0.0 0.0
+          </vitesse>
+          <masse>
+              1e8
+          </masse>
+          <couleur>
+              1.0 0.0 0.0 1.0
+          </couleur>
+      </corps>
+
+      <!-- Deuxieme corps -->
+      <corps>
+          <type>
+              zplanete
+          </type>
+          <position>
+              -5.0 -2.88675134594813 0.0
+          </position>
+          <vitesse>
+              -0.00866025403784439 0.0173205080756888 0.0
+          </vitesse>
+          <masse>
+              1e8
+          </masse>
+          <couleur>
+              0.0 1.0 0.0 1.0
+          </couleur>
+      </corps>
+
+      <!-- Troisieme corps -->
+      <corps>
+          <type>
+              satellite
+          </type>
+          <position>
+              5.0 -2.88675134594813 0.0
+          </position>
+          <vitesse>
+              -0.00866025403784439 -0.0173205080756888 0.0
+          </vitesse>
+          <masse>
+              1e8
+          </masse>
+          <couleur>
+              0.0 0.0 1.0 1.0
+          </couleur>
+      </corps>
+
+  </univers>
+<univers>
+</univers>

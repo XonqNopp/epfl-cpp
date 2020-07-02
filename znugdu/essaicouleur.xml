@@ -1,0 +1,40 @@
+<univers>
+	<pasdetemps>1.0</pasdetemps>
+	<temps>365</temps>
+	<camera>
+		<oeil>0.0 0.0 -10.0</oeil>
+		<visee>0.0 0.0 0.0</visee>
+		<verticale>1.0 0.0 0.0</verticale>
+	</camera>
+
+	<corps>
+		<nom>0.0 1.0 0.0</nom>
+		<position>0.0 4.0 0.0</position>
+		<masse>1000</masse>
+		<couleur>0.0 1.0 0.0 1.0</couleur>
+	</corps>
+	<corps>
+		<nom>0.1 0.9 0.1</nom>
+		<position>0.0 2.0 0.0</position>
+		<masse>1000</masse>
+		<couleur>0.1 0.9 0.1 1.0</couleur>
+	</corps>
+	<corps>
+		<nom>0.2 0.8 0.2</nom>
+		<position>0.0 0.0 0.0</position>
+		<masse>1000</masse>
+		<couleur>0.2 0.8 0.2 1.0</couleur>
+	</corps>
+	<corps>
+		<nom>0.3 0.7 0.3</nom>
+		<position>0.0 -2.0 0.0</position>
+		<masse>1000</masse>
+		<couleur>0.3 0.7 0.3 1.0</couleur>
+	</corps>
+	<corps>
+		<nom>0.4 0.6 0.4</nom>
+		<position>0.0 -4.0 0.0</position>
+		<masse>1000</masse>
+		<couleur>0.4 0.6 0.4 1.0</couleur>
+	</corps>
+</univers>

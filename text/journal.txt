@@ -1,0 +1,476 @@
+Avertissement: en raison d'une incompabilite certaine et remarquee a notre insu des accents sur les differentes machines, ce fichier ne contient donc aucun accent.
+Remarque: les heures de travail sont la somme des heures de travail de chacun de nous deux.
+Heures de travail totales: 311h = 1 semaine, 5 jours et 23h
+
+Vendredi 24.03.2006: 4h de travail
+	Debut du projet, programmation des la classe vecteur3d
+	
+Vendredi 31.03.2006: 6h de travail
+	Changements effectues dans la classe vecteur3d, notamment en remplacant quelques fonctions par des operateurs
+	
+Lundi 03.04.2006: 2h de travail
+	Ameliorations apportees a la classe vecteur3d
+	
+Mercredi 05.04.2006: 9h de travail
+	Apres une semaine de torture cerebrale pour trouver ou etait l'erreur, la classe vecteur3d fonctionne parfaitement ainsi que toutes ses fonctions. L'operateur d'affichage
+	<< etait le seul a coincer, la cause est qu'il fallait mettre le "using namespace std;" dans le fichier .h et non dans le .cc
+	Maintenant que cette classe marche, nous pouvons passer aux suivantes, corps et univers.
+	
+	La classe corps fonctionne tres bien. La clase univers contient neanmoins encore quelques petites erreurs a corriger, lorsque j'ai effectue le programme de test j'ai eu
+	droit a la "segmentation fault"...
+	
+	Nous avons egalement essaye les exemples glut, on n'arrivait pas a les compiler jusqu'a hier, jour ou nous avons appris qu'il fallait mettre dans la commande de
+	compilation le fichier final juste apres le -o au lieu des bibliotheques a rajouter pour glut :-? Nous avons faits quelques essais en modifiant les exemples, et en
+	regardant le tutoriel pour d'autres formes.
+	
+Jeudi 06.04.2006: 6h de travail
+	13h00: De son cote, mon coequipier s'amuse a apprivoiser les fonctions de l'interface graphique
+	
+	La segmentation fault persiste pour le moment, meme si elle a regresse en me laissant tester un peu plus de mon programme... Mais il est 15h00, je dois aller faire les
+	courses pour l'apero de la conference que nous (les Irrotationnels) organisons ce soir sur les ordinateurs quantiques, je reviendrai plus tard.
+	
+	17h00: Me revoila, et la segmentation fault n'est plus la, mais seulement pour l'affichage d'un univers a 3 corps.
+	
+	Elle est revenue pour la boucle d'affichage des corps de l'univers, elle me cherche :-@ Mais bon, il est 17h50, je dois retourner preparer la conference de ce soir.
+	
+	21h00: Retour apres une conference sur les ordinateurs quantiques, l'apero et les rangements. L'operateur d'affichage de la classe univers fonctionne JUSQU'A la fin de la
+	liste des corps. Juste apres vient le segmentation fault %-P
+	
+	21h30: Apres une demi-heure, je decouvre que la segmentation fault vient de ce qui est apres l'univers dans le cout. Si je mets "cout << univers;" ca fonctionne, mais si
+	je mets
+	"cout << univers << endl;" ou "cout << univers << flush;", j'ai droit a la segmentation fault...
+	
+	21h45: YYYYYYYYYEEEEEEEEEEEEEEESSSSSSSSSSSSSS!!! Ca fonctionne!!! L'erreur etait toute bete (forcement), j'avais juste oublie, dans la fonction d'affichage, de faire
+	"return out;"... Et comme je passais mon ostream par reference, il etait modifie et je ne voyais pas ce leger detail, vu que j'avais l'affichage de mes corps... Mais
+	maintenant, c'est bon, c'est corrige!! Passons a la suite! Enfin, ca sera pour demain, il commence a se faire tard, mon train est dans 45 minutes au Flon, je vais m'en
+	aller...
+
+Vendredi 07.04.2006: 7h de travail
+	Le centre de masse fonctionne. Nous avons rajoute un attribut couleur sous forme de vecteur3d a la classe corps. Nous avons egalement change les private de corps et de
+	univers en protected afin de commencer les sous-classes. Nous avons egalement rajoute l'operateur de division par un scalaire dans la classe vecteur.
+	
+	Nous essayons egalement de changer la postition du point de vue dans l'interface graphique.
+
+Mercredi 12.04.2006: 5h de travail
+	Sous-classes de corps, ecriture des constructeurs et destructeurs, egalement d'une methode d'affichage pour glut. Nous n'avons pas encore pu l'essayer, nous essayons de
+	compiler les sous-classes, mais "etoile" oppose une legere resistance. Et d'ailleurs, je viens de repenser que cette erreur se representera lorsque le compilateur arrivera
+	aux autres sous-classes, etant donne qu'il y a la meme chose. Cette erreur est que nous definissons le rayon (respectivement le cote) de nos corps en static en fonction de
+	la masse, alors qu'au moment de defition des static, il n'y a encore aucun autre attribut de definit.
+	
+	Le probleme est resolu, au lieu de definir les rayon et cote en static, ils sont definis dans le constructeur. Par contre, la tentative de fonction d'affichage dans glut
+	n'est pas encore tres convaincante, nous avons mis tout en commentaire pour essayer les sous-classes. Peut-etre qu'en compilant dans un programme qui utilise l'interface
+	graphique nous aurons de meilleurs resultats...
+	
+	Il ne dit pas que les fonctions d'affichage posent problemes, mais par contre il nous dit qu'il ne peut pas compiler le fichier final, sa remarque exacte etant
+	"/usr/lib/gcc-lib/i386-redhat-linux/3.2.3/../../../crt1.o(.text+0x18): In function `_start':
+	 : undefined reference to `main'
+	 collect2: ld returned 1 exit status"
+	Et comme nous ne savons pas quels sont ces fichiers, nous ne connaissons pas encore l'origine de cette erreur.
+	
+	Ca fonctionne, il s'agissait en fait d'un leger probleme dans le makefile :-$ nous avions oublie de lui dire de compiler le fichier final avec le fichier qui contenait
+	l'initialisation de l'interface graphique... Par contre, l'affichage est plutot douteux... Nous connaissions deja le "blue screen of death", nous savons maintenant aussi
+	ce qu'est le "black screen of death"........
+
+Jeudi 20.04.2006: 4h de travail
+	Les sous-classe de corps s'affichent dans l'interface graphique. Mais je sens que je vais pas etre tres copain avec ces trucs qui apparaissent tout le temps: Segmentation
+	fault!!!!!!!! Bon, elle est la depuis que j'ai modularise le fichier qui contenait le 5e exemple d'utilisation de l'interface graphique que nous avions deja modifie pour
+	lui faire afficher d'autres speres qui tournaient les unes autour des autres. Mais la, j'essaie l'affichage des mes sous-classes, et il me les affiche, mais je peux pas
+	changer l'orientation de la camera, et quand je quitte, je trouve dans le terminale cette fameuse "Segmentation fault"... J'ai verifie, elle n'est pas la tant que je n'ai
+	pas quitte.
+	
+	Nouvelle constatation, elle doit provenir de la fonction daffichage dans l'interface graphique, car lorsque je demande d'afficher une planete et un satellite prealablement
+	defini, avec l'affichage dans l'ordre precite, je ne vois que la planete... Et ca expliquerait aussi pourquoi les fonctions de deplacement du point de vue ne fonctionnent
+	pas...
+
+Vendredi 21.04.2006: 2h de travail
+	Ah! Il y a la meme erreur dans mes trois sous-classes. Le programme fonctionne jusqu'au moment de l'affichage d'un sous-corps, que ce soit une planete, un satellite ou une
+	etoile. Ce qui est bizarre, c'est que les fonctions speciales du clavier, c'est-a-dire les changements du point de vue a l'aide des touches fleches, ne fonctionnent pas,
+	alors que les fonctions normales du clavier, c'est-a-dire quitter si on appuye sur q ou esc, fonctionnent normalement.
+	
+	Merci ddd, le devermineur qui plante l'interface graphique!! Si j'execute mon programme normalement, il m'affiche mon premier sous-corps et ne veut plus rien faire d'autre
+	que quitter apres. Mais si je le lance depuis le devermineur, il ne veut meme plus quitter, il bloque l'interface graphique!! J'ai d'ailleursde tres belles captures de
+	l'ecran...
+
+Lundi 24.04.2006: 4h de travail
+	La segmentation fault doit provenir de l'appel des fonctions qui quittent, parce que meme si on appuye sur les fleches, du moment qu'on quitte en cliquant a l'aide de la
+	souris sur le bouton prevu a cet effet, il n'y a pas de segmentation fault...
+
+	EDIT: ha ha! Vive Mac! Chez moi, sur mon ordi, lors de l'execution du programme, mon terminal ne m'affiche pas betement "segmentation fault", mais il me dit que la
+	variable qu'on utilise comme fenetre est deja nulle lors de sa destruction...
+
+Mardi 25.04.2006: 3h de travail
+	Creation de la classe couleur, qui n'est en fait qu'une copie de la classe vecteur3d avec un argument de plus et la moitie des methodes en moins. Creation de la calsse
+	camera prenant 3 vecteru3d en arguments. Modification des includes <GL/glut.h> avec la fonction pour rendre nos programmes compatibles avec OS X, sur lequel nous sommes
+	tous les 2.
+
+Mercredi 26.04.2006: 8h de travail
+	Nous avons rennome la classe couleur en couleur4d pour eviter les confusions avec l'argument couleur de corps. Nous avons aussi optimiser les makefile a l'aide de la
+	commande $^. Nous avons ajoute a la classe corps la fonction "virtual void parametre_affichage() = 0;", mais du coup l'operateur de copie ne fonctionne plus :'(
+
+	Suite a beaucoup de problemes avec la fonction glutKeyboardFunc, voici ce que mon coequipier declara: c'est une fonction qui appelle une fonction, mais elle ne marche pas. Alors on
+	rajoute entre deux une fonction qui appelle une autre fonction.
+
+Jeudi 27.04.2006: 2h de travail
+	Nouvel ajout a la classe corps, la fonction "virtual void dessine() = 0;", et au niveau de la classe, tout fonctionne, restent encore des problemes d'affichages dans
+	glut... Le programme de test compile, mais glut ne m'affiche rien d'autre qu'un ecran noir...
+
+Vendredi 28.04.2006: 5h de travail
+	Ajout de cvirtual devant tous les destructeurs.
+
+Ludni 01.05.2006: 4h de travail
+	Aujourd'hui, nous avons combine une table et un mammouth! a dit Steve en expliquant ce que represente la combinaison de la compilation orientee objet et de glut.
+
+Vendredi 05.06.2006: 9h de travail
+	Camera fonctrionne, mais plus rien ne s'affiche. La classe GUI compile, mais il y a un souci lors de l'execution qui nous donne glut warning. The following is a new check
+	for Glut 3.0; update your code, et aussi glut fatal error: redisplay neede for window 1, but no display callback. Youpi!! :'(
+	
+	Nous avons change aujourd'hui dans la classe univers, il y a desormais une liste de pointeurs sur des corps et plus un liste de pointeurs constants sur des corps.
+	
+Lundi 08.05.2006: 8h de travail
+	Nous nous acharnons sur la classe camera qui est tres probablement la cause du non affichage dans l'interface graphique, vu que plus rien ne s'affiche depuis que nous l'y
+	avons combinee. Apres quelques essais, c'est effectivement la classe camera qui pose probleme, pourtant il n'y a rien de special dedans (?) et nous continuons de chercher
+	la source de nos problemes afin de pouvoir enfin continuer le projet l'ame en paix...
+	
+	La source d'erreur est donc dans les fonctions getposx etc... car en utilisant getpos().getx() a la place de getposx(), cela fonctionne. Bon, nous avons donc supprime ces
+	fonctions et utilisons la maniere plus longue mais qui fonctionne. Par ailleurs, les etoiles s'affichent, les planetes aussi mais pas encore les satellites, mais nous y
+	travaillons... En fait... Le satellite s'affichait, seulement, la methode parametre_affichage() lui donne un cote beaucoup plus petit que ce que je pensais, il avait une
+	masse superieur a ma planete mais etait plus petit.
+
+Mercredi 10.05.2006: 3h de travail
+	Apres nous etre acharnes pendant 2 heures sur le rapport de chimie que nous devons rendre demain, je me replonge dans le projet histoire de fusionner nos 2 parties, a
+	savoir tout ce qui concerne l'interface graphique et le reste. Cette tache est presque achevee, mais il y a un bug quelque part, les etoiles ne s'affichent pas. La source
+	de ce probleme ne nous est pas encore apparue.
+	
+	Comme d'habitude, la machine ne se trompe aps, c'est l'utilisateur... J'ai tout simplement oublie, lorsque j'ai mis les methodes parametre_affichage() dans les
+	constructeurs par defaut et par valeur de mes 3 sous-classes de corps, de la mettre dans le constructeur par valeur d'etoile... Et donc, maitenant, nous avons un affichage
+	correct de l'univers dans l'interface graphique!
+	
+	Et quand on resoud quelque chose, tout s'enchaine. Depuis une semaine que nous essayons de faire faire des mouvements a la camersa, c'est chose faite! Il y avait tout
+	simplement un probleme au niveau de la definition, car les fonctions qui gerent les mouvements en fonction des evenements clavier et souris etaient prototypees
+	globalement dans le fichier camera.cc avec les arguments necessaires et en meme temps declarees en friend dans la classe GUI sans arguments. En supprimant les prototypes
+	du fichier camera.cc, cela debloque la camera et nous pouvons maintenant lui faire faire des mouvements!
+	
+	Nous avons un probleme avec la fonction mise_a_jour() de la classe corps: nous l'avons definie pour qu'elle traite x, y et z separement. Le probleme est que lorsqrue ces
+	valeurs des 2 corps sont egales, cela retourne une force infinie...
+	
+	C'est bon, ca marche, nous lui avons regle son compte, elle n'a pas resiste longtemps. Le seul probleme, c'est qu'il commence a se faire tard et que je vais devoir rentrer
+	chez moi... La suite au prochain numero...
+
+Jeudi 11.05.2006: 1h de travail
+	Apres 4 heures de TP et 3h a faire le rapport, il me reste une heure a tuer et je n'ai quasiment rien d'autre a faire que le projet. Ajout d'une touche qui effectue la
+	mise a jour de l'univers, en attendant que nous ayons une fonction qui gerent ca.
+	
+Vendredi 12.05.2006: 1h de travail
+	Apres la serie notee, encore un peu de programmation! En fait, je n'ai pas beaucoup fait mon projet, mais j'ai surtout aide des amis qui avaient (ont?) des problemes avec
+	la fonction de mise a jour de l'univers...
+	
+Dimanche 14.05.2006: 1h de travail
+	En rentrant de chez mon pere dimanche soir, j'ai eu envie d'en finir avec cette fonction de mise a jour de glut et cxela fonctionne.
+	
+Lundi 15.05.2006: 1h de travail
+	Hem... C'etait hier, ca... On avait commence de remplir le journal, on a mis la date, mais pas plus... Alors, je vais essayer de me souvenir ce qu'on a fait hier...
+	
+	Donc, nous avons cherche encore une fois les fonctions de mouvements qui ne fonctionnent pas dans la classe camera sans avoir trouve... Nous avons egalement verifie la
+	rigueur de la fonction qui renvoie le centre de masse de l'univers, car nous avons eu quelques doutes, mais il semblerait que tout soit ok.
+	
+Mardi 16.05.2006: 3h de travail
+	Nous avons decouvert que le vecteur direction n'est en fait pas celui que nous croyions, et du coup nous avons modifie la camera et nos fonctions de deplacements
+	fonctionne!! Cela faisait 2 ou 3 semaines que nous cherchions pourquoi notre camera n'agissait pas comme nous le lui demandions...
+	
+	Les exercices simulationP14.cc et simulation3d.cc sont faits, je verrais chez moi pour tout mettre dans le meme fichier, Xcode (sous Mac) est bien plus pratique que Xemacs
+	ici. A ce propos, l'exercice exerciceP11.cc est fini, dans un seul fichier et compile sans probleme.
+
+Vendredi 19.05.2006: 2h de travail
+	Bien... Nous allons donc tout remettre comme avant, en fichiers separes, makefile et tout, c'est pas un boulot enorme, c'est juste dommage d'avoir passe du temps a tout
+	mettre dans un seul fichier... Et l'exerciceP10.cc et fait, il fonctionne normalement...
+
+Mercredi 24.05.06: 5h de travail
+	Cet apres-midi ne fut pas facile, la classe parseur est difficile a visualiser, nous avons beaucoup de peine a l'ecrire... En plus, j'ai passe environ une demi-heure a
+	aider des amis qui avaient des problemes d'affichage que j'avais egalement connu, mais cela ne m'a pas aide pour trouver les solutions de mon cote...
+
+Lundi 29.05.06: 6h de travail
+	La conception de la classe parseur nous parait plus claire. Nous avons reussi a passer du texte en lancant le programme pour l'utiliser dedans, et donc a lire un fichier
+	xml externe au programme.
+
+Mardi 30.05.06: 6h de travail
+	Dans la joie et la bonne humeur, nous reprenons la classe camera depuis le debut X-@ Et toujours cette histoire de XML qui nous *#$!%&...
+	
+	Ca avance, a la vaudoise, gentiment mais surement... La classe parseur commence gentiment a prendre forme, et la camera commence a re-prendre forme, avec cette fois des
+	angles en plus, pour nous permettre une meilleure utilisation des mouvements... Mais c'est deja l'heure de nos SHS de bonheur :-(
+	
+Mercredi 31.05.06: 4h de travail
+	La classe parseur est toujours aussi peu claire, mais elle tend a s'eclaircir... Apres avoir stocke les differentes balises dans la classe en static char, static char*,
+	const static char, const static char*, static int, const static int, static int*, const static int*, le switch sur ces valeurs ne veut rien savoir, "case label does not
+	reduce to an integer constant"... Heureusement, un assistant a reussi a compiler la classe en ayant supprime les static et fait un enum, c'est en train de se mettre en
+	place... Mais maintenant, il n'aime plus ma fonction qui me retourne un element de ma map, il me dit qu'il y a une erreur avant ::, c'est-a-dire dans tagtype (le type de
+	mon enum) parseur::, ouais..................... Ah! Betement, j'ai defini mon enum dans ma classe, et doit donc definir ma fonction de la maniere parseur::tagtype parseur::...
+	
+	Ca y est! Mon switch fonctionne!! Comme par hasard, l'erreur venait de moi, pour ne citer qu'un exemple de balise, je lui demandais de tester si "univers" etait la meme
+	que "<univers>"... :-$
+	
+Jeudi 01.06.06: 5h de travail
+	Autre erreur comprise aujourd'hui, pour chercher une balise, je prenais mon string et je renvoyais la sous-chaine s definie comme monstring.substr( monstring.find( "<" ),
+	monstring.find( ">" ) ) et donc, ne prenait pas que la balise cherchee, vu que le 2e argument de substr est la LONGUEUR et non pas la position comme je l'avais oublie...
+	
+	Maintenant que la classe parseur comprend toutes les balises, nous passons a l'ecriture des fonctions d'extractions. Au passage, nous avons rajoute une pile avec les
+	balises pour etre sur que les balises s'ouvrent et se ferment dans le bon ordre. Par contre, les stacks ne sont pas encore tres au point... :-?
+
+	De retour chez moi, apres un rapide ssh, je continue ce que j'ai commmencé. J'ai essayé de plusieurs manieres differentes, que je mette un stack ou un vector, des que je
+	depile, il ne supprime pas completement la derniere entree, car des que je fais un push(_back) suivi d'un pop(_back), l'element supprimé auparavant est de nouveau la...
+	Et pour voir ou j'avais des problemes, je lui ai demande de m'afficher la taille avant et apres chaque suppression d'element, et la tille augmente de 2 lorsque j'ai
+	supprime un element et que j'en ajoute un autre different, que ce soit un vector ou un stack...
+
+	Apres plusieurs essais de toute sorte, j'abandonne pour ce soir (c'est qu'il commence a se faire tard en plus) et je demanderais demain au professeur pourquoi la fonction
+	pop(_back) ne supprime pas le dernier element...
+
+Vendredi 02.06.06: 11h de travail
+	Pourquoi?? Ah oui! L'assistant vient de trouver mon erreur (pas celle de la machine, la mienne, hem :-$ ), c'est que j'appelais la fonction matchtag() depuis la fonction
+	matchendtag() pour afficher de quelle balise il s'agissait, mais la fonction matchtag ajoutrait a chaque fois la balise dans la pile... :-?
+	
+	Premiere utilisation concluante du devermineur!! Champagne!! Jusqu'a maintenant, a chaque fois que j'ai voulu l'utiliser, il ne voulait pas me montrer ce que je voulais
+	savoir... Cela avait meme donne quelques captures d'ecran lors d'essai de deverminage de glut... Mais pour les segmentation fault standard, il est imabattable!
+
+	Nous avions deja remarque que la balise univers etait fermee deux fois, nous venons de comprendre qu'elle est en fait stockee deux fois dans notre grand string...
+	
+	De son cote, mon coequipier a reussi a tracer les orbites des planetes ainsi que les projections de ces orbites. Il a egalement reussi a derouler des menus sur un clic de
+	souris, nous savons que sous Mac, le bouton du milieu de linux est la combinaison alt-clic.
+	
+	Petits problemes techniques (passagers?), dans la classe parseur, il ne comprend pas camera et corps, le probleme vient peut-etre de la ligne en dessus avec dessinable...
+	
+	Creation d'une classe d'erreur pour permettre de mieux gerer les throw'n'catch ;-) pas grand chose, mais comme ca c'est fait et nous pourrons les mettre dans la classe
+	parseur quand ca fonctionnera.
+	
+	Pour en revenir aux problemes de camera et de corps, ca ne fonctionne toujours pas, et cela meme si je rajoute les include correspondants (qui sont deja inclus par
+	l'inclusion d'univers) et je ne comprends pas pourquoi il me fait ca!!!!!!
+	
+	Apres un kebab (eh oui!), on s'y replonge, mais l'erreur n'est pas partie entre temps, dommage... Il me dit clairement que camera ainsi que corps et ses sous-classes
+	n'existent pas et que je dois les definir avant, alors qu'ils sont tous inclus par univers, qui est inclus dans parseur... Meme pares quelques minutes a naviguer sur le
+	net, mes erreurs sont toujours la, je ne sais plus quoi faire pour les faire partir, je devrais peut-etre faire appel a un marabout ou a un exorciste!!! X-( En fait, je
+	vais plutot bientot appeler le reparateur, parce que si ca continue, je risque de lancer l'ecran, et il va se fracasser contre mes jambes vu qu'il est cadenasse a la
+	table... X'( Bon, ca y est, je me suis enerve, j'ai lance un sort de boule de feu sur mon ecran: capacite de sort: 25 / jet de 1D100: 39, echec, mon ecran a de la
+	chance... (Grrr... J'aurais ma revanche!) Tiens, c'est marrant, maintenant, ma ligne corps* createcorps(); est dans ses couleurs normales alors qu'elle avait jamais voulu
+	jusqu'a maintenant... Mais ca ne compile quand meme pas... En revanche, ce probleme m'a permis de remedier a un eventuel futur probleme:
+	
+	Nous avions un temps fait heriter dessinable de univers, car cela simplifiait grandement le code et l'utilisation. Nous nous sommes rendus compte par la suite que cela
+	etait tout a fait illogique et que c'est univers qui devait heriter de dessinable, ce que nous avons modifie. Par contre, nous avions alors omis quelques changements: la
+	classe camera etait incluse dans le fichier univers.h, alors que c'est dans dessinable.h qu'elle est a sa place...
+
+Samedi 03.06.06: 7h de travail
+	Ouah, trop genial!! La classe univers contient maintenant une methode a appeler en cas de collision de corps, et c'est vraiment bien! Enfin, il m'a quand meme fallu un
+	bon moment pour y arriver, ainsi que quelques segmentation fault, bus error et autres floating point exception... Mais sur ce point, je dis merci Apple, parce que quand
+	mon programme tourne et qu'il arrive sur une de ces erreurs precitees qui le fait s'arreter, il me donne un rapport de bug et me dit a quels lignes de quels programmes
+	je dois regarder, ce qui me facilite grandement la tache... Mais bon, maintenant que ca c'est fait, nous allons nous remettre dans nos parseur, il y a juste dans un coin
+	cette region d'irreductibles erreurs qui resistent encore et toujours au compilateur...
+
+	Euh... Il y a comme un pprobleme, la... J'ai fait quelques modifications, et au moment de l'impact, je ne vois plus rien! Mais en utilisant l'affichage dans le terminal
+	(et du coup la fonction affiche et l'operateur << sont definis dans la classe dessinable), j'ai remarque que j'avais commis une erreur: je voulais des masses de mes
+	nouveaux corps de l'ordre du millieme de la masse du corps detruit, plus ou moins une petite valeur. Mais cette petite valeur, je ne l'avais pas definie correctement,
+	j'avais laisse la masse en question, donc certains corps se retrouvaient avec 1 fois plus 1, soit 2 fois la nouvelle masse, et d'autres avec 1 fois moins 1, soit = fois
+	la masse, soit une masse de 0, et la, c'est pas terrible...
+
+	Oh! Apres quelques modifications dans la classe corps et ses sous-classes suite a l'ajout de l'enum qui contient les types de corps dans ce fichier (mais ne vous
+	inquietez pas, il est toujours dans le fichier parseur.h, pour si notre projet est utilise sans univers, j'ai utilise les #ifndef etc.)... Donc, comme je le disais, suite
+	a quelques modifications des corps, ma classe parseur accepte une fonction qui me retourne une etoile, une autre une planete et une derniere un satellite, chose qu'elle
+	me refusait jusqu'alors. En revanche, il n'y a toujours pas moyen de lui faire avaler une methode qui renvoie un pointeur sur un corps...
+
+	Premiere methode de dechiffrage, celle qui cree un vecteur3d, elle fonctionne plutot bien pour l'instant... Egalement couleur4d et double, jusqu'ici tout va bien...
+
+Dimanche 04.06.06: 11h de travail
+	Hi hi!! J'ai enfin trouve pourquoi il ne voulait pas reconnaitre camera et corps: c'etait tout simplement parce qu'il faisaient partie de mon enum de tagtype, et donc
+	pour lui ce n'etait plus des classes. Donc cettte legere erreur est corrigee, continuons sur cette bonne voie!
+
+	Apres quelques heures de tortures cerebrales, j'ai enfin reussi a ecrire des fonctions qui cherchent des balises ou qui effacent des commentaires, par exemple, mais ce ne
+	fut pas chose facile...
+
+	Ajout de quelques methodes virtuelles pures dans la classe dessinable pour pouvoir travailler avec un pointeur sur un dessinable dans la classe de parseur, mais depuis,
+	le programme simulation3d.cc ne fonctionne plus, et cela meme si je remets toutes ces methodes non-virtuelles... [...] Hem... Encore une fois... J'avais fait une
+	erreur... J'avais fait un #ifndef dans dessinable.h et dans univers.h, mais dans le premier, il incluait corps.h et dans le second etoile.h, du coup, etoile n'etait pas
+	compris, vu que c'etait le premier qui etait pris en compte et donc le deuxieme etait ignore...
+
+	Bon, je suis tombe sur un ami sur MSN, et il en a profite pour me demander de l'aider car sa classe univers a encore quelques soucis... Sinon, les parseurs... On
+	progresse, mais c'est pas encore tout a fait ca...
+
+Lundi 05.06.06: 8h de travail
+	Bon... Petit changement: remplacer tous les cerr par des throw, et donc creation d'une classe d'erreurs avec 3 strings: la fonction, le fichier et le message d'erreur.
+	Et je viens enfin de reussir a compiler tout ca... Mais ca fonctionne pas! [...] Apres quelques essais et des affichages en cout, en fait, ca fonctionnait... Mais pas a
+	la fin, c'est juste la derniere balise qui n'est pas prise, et c'est ce qui me donnait une boucle infinie de messages d'erreurs... [...] En fait, le probleme est
+	ailleurs: chaque balise qui en precede une autre est ouverte deux fois... [...] Voila, j'ai trouve l'erreur, elle etait dans la fonction qui supprime les commentaires,
+	elle enlevait les commentaires de "<!--" jusqu'a "-->" non compris... :-$ Mais c'est reglé, ca fonctionne, on continue!
+
+	Voila, ca avance de plus en plus, maintenant, quand il lit <univers>, il cherche <temps> et <pasdetemps>, ecriture en cours pour le cas <corps>, mais les 2 premiers
+	fonctionnent! [...] Presque fini la lecture d'un corps! Il reste encore quelques soucis avec la lecture des vecteur3d (il ne prend pas tout les chiffres des longues
+	coordonnees) et un nouveau souci qui est apparu alors que j'ai simplement rajoute un argument dans ma fonction newcouleur4d...
+	
+Mardi 06.06.06 (Le jour du diable!!): 3h de travail
+	Bon... Ca devient presque une habitude, mais en meme temps c'est normal... L'erreur dans la lecture du contenu de vecteur3d et de couleur4d venait de moi, je cherchait des
+	positions d'espaces dans tout le texte et pas seulement dans le bout que j'utilisais, et j'utilisais ensuite les positions trouvees pour prendre des bouts de textes du
+	string utilise, et donc les espaces ne correspondaient pas... Par contre, il ne reconnait pas encore le genre des corps...
+	
+	Nous venons de mettre un attribut camera dans dessinable, pour pouvoir faire fonctionner la classe parseur... Mais avant de nous occuper des camera en XML, nous voulions
+	en finir avec les problemes de corps, il lance toujours une erreur en disant que l'univers ne contient aucun corps, meme s'il en contient... :-P Et apres quelques
+	modifications, nous retrouvons quelqu'un que nous n'avions plus vu depuis quelques temps, notre chere amie Segmentation Fault...
+	
+	Voila!! Rien de tel que 2 heures de SHS pour se remmetre d'aplomb!! La classe parseur est terminee!! Il s'agissait juste d'une erreur sur la fonction, je lui disais de
+	chercher des balises tant que le nom du fichier n'etait pas vide, alors que c'est le contenu du fichier qui est lu... Occupons-nous de simulationP15.cc...
+	(Hum...) [...] Bien! Donc, forcement, ca ne veut pas me compiler tout ca ensemble, ce qui est fort c'est que mon fichier testparseur.cc etait presque identique a
+	simulationP15.cc... A la difference pres que dans simulationP15.cc j'ai mis cout << *(monparseur.extraire()) alors que dans testparseur.cc j'avais cout <<
+	monparseur.extraire()... Donc, ca fonctionne. Voyons l'interface graphique...
+	
+	Ca y est! Enfin! Fini la programmation des parseurs, ca fonctionne avec l'interface graphique! Bon, maintenant j'ai plus rien a faire, il faut encore voir les problemes de
+	camera, mais ca je ne peux pas le faire tout seul... Bon, pause-internet bien meritee... :-)
+	
+Mercredi 07.06.06: 12h de travail
+	Triage des methodes de la classe parseur, il y en a quelques unes que nous avons definies que nous n'utilisons pas... La nouvelle camera avance bien, nous avons elimine
+	pas mal d'erreur... Pour en revenir aux parseurs, nous nous sommes rendus compte que nous avions omis de gerer les erreurs entre les balises, et nous nous y mettons donc.
+	Nous allons aussi revoir la fonction simulation de GUI...
+	
+	Petit probleme dans la classe parseur, les fonctions qui convertissent les string en nombres ne comprennent pas qu'elles ne doivent pas convertir du texte en 0, mais
+	lancer une erreur... :-?
+	
+	La roulotte a kebabs va bientot faire fortune ;-) Mis a part cela, les parseurs en sont toujours a la meme place, il comprend le texte comme des nombres nuls... Les
+	parseurs avancent (non non, ils ne sont pas tout a fait fini, en fait :-? ), il a fallu comprendre comment utiliser un switch au travers d'enum pour faire un cas
+	default... Nous avons meme eu droit a une segmentation fault exceptionnelle: elle n'etait presente que dans le terminal! Avec DDD, il lance le programme sans la moindre
+	erreur, super, merci beaucoup!! :-@ Rah! DDD est vraiment nul!! Il ne fonctionne que dans 10% des cas... Nous venons de realiser qu'en fait, le programme fonctionnait tres
+	bien sous DDD car il ne prend pas en compte le fichier que nous donnons en lancant le programme, il prend le fichier par defaut prevu pour le cas ou aucun fichier ne
+	serait precise lors du lancement (merci les cout)... Ah! Forcement, quand on cherche l'element d'un vector stocke a la position -1, on a peu de chances de le trouver, et
+	de tres grandes chances d'obtenir une segmentation fault... Il s'agissait juste d'une variable pour le nom par defaut que j'avais oublie de changer la valeur pour une
+	valeur permise...
+	
+Jeudi 08.06.06 (Vivapoly): 6h de travail
+	Nous avons decide ce matin de faire une nouvelle sous-classe de corps, asteroides, composee de points materiels (c'est le cas de le dire), car ils ont une masse (plutot
+	mince, mais elle pourrait tres bien devenir grosse si on le lui demande) mais ne sont affiches que par un pixel... Quelques petites modifications dans la classe parseur
+	s'ensuivent donc, mais tout va bien. Par contre, cela va moins bien pour le reste, quelques petites modifications dans dessinable, univers et parseur, et ca ne marche
+	plus, pas d'erreurs a la compilation, mais lors de l'execution, "pure virtual method called", youpi... :-? Forcement, j'ai modifie partout SAUF dans une fonction de
+	parseur, alors maintenant, ca tourne...
+	
+	Pendant que je suis au montage du bar des Irrotationnels pour Vivapoly, mon coequepier pete une case sur la camera (ce sont ses propres mots)...
+	
+	Vivapoly bat son plein, apres 3 bonnes heures de service au bar des Irrotationnels, me revoici pour une heure et demi, a minuit je retourne pour les rangements... La
+	classe d'asteroides n'est pas encore au point... Enfin, la classe oui, mais pas les fonctions qui en creent dans univers... Apres avoir obtenu des boucles infinies qui
+	bloquaient l'affichage, je lui demande de m'ecrire mon univers et j'obtiens une jolie petite segmentation fault... Bon, comme je n'ai pas envie de modifier la classe
+	parseur juste pour utiliser le devermineur, je me debrouille avec les cerr, et on progresse, on progresse... Je ne sais toujours pas ou se trouve la segmentation fault,
+	mais je sais ou elle ne se trouve pas.
+	
+Vendredi 09.06.06: 8h de travail
+	Houla... Mise en commun de nos recentes modifications... Ca n'a pas ete facile, mais c'est bon, j'ai les dernieres nouveautes glut et mon coequipier a les parseurs.
+	Sinon, notre classe d'asteroides avance, mais je ne comprends plus rien, il me semble que lors de mon depaart de l'EPFL ce soir, je n'ai plus rien touche depuis que ca
+	fonctionnait (enfin, c'est ce qu'il me semble, mais je vois pas comment ca pourrait etre possible si je n'y ai pas retouche), et voila que je me retrouve avec quelques
+	segmentation fault ou autre bus error...
+
+Samedi 10.06.06: 3h de travail
+	Moi je dis, rien de tel que les cerr pour trouver les seg fault... Je viens de localiser celle qui me fait tout planter... Elle se trouve juste au moment ou un asteroide
+	doit etre detruit. J'avais deja obtenu commme info du sympathique rapport de plantage d'application d'OS X que j'avais un probleeme avec mes iterateurs, mais je ne
+	voyais pas ou je modifiais mon set et continuait d'utiliser un iterateur...
+	
+Dimanche 11.06.06: 3h de travail
+	AAAAAAAAAAAAAAAAAAAAAAARGH!! Mon ordi s'est fache contre moi!! Il s'eteint tout seul apres une duree qui varie entre 3 minutes et une demi-heure, quoi que je sois en train
+	de faire, meme si je ne fais que l'allumer, il finit par s'eteindre... Bon, dans le laps de temps qu'il a daigne rester allume, j'ai reussi a faire un petit scp pour
+	ramener ici les modifications que j'avais effectuees samedi, et me voici donc de nouveau a l'EPFL (un dimanche, super :-P ) pour continuer ce joli projet dans la joie et
+	la bonne humeur...
+	
+	Segmentation fault... Il n'aime pas ma methode corps::getrayon()...
+	
+Lundi 12.06.06: 10h de travail
+	Je viens de comprendre: en fait, il ne trouvait plus du tout le corps. Dans ma methode de mise a jour, je voulais faire la mise a jour de tous mes corps a chaque fois et
+	je sais que si je supprime ou rajoute un corps en cours de route je n'ai plus le droit d'utiliser mon iterateur. J'ai donc fait un vector qui me stocke tous les corps
+	dont il faudra faire quelque chose qui ajoute ou enleve des corps a la fin de ma boucle en for. Mais entre-temps, mes corps ont ete mis a jour, et ne sont donc plus les
+	meme...
+	
+	Voila, nous avons maintenant une fonction qui permet de retrouver un corps par son nom (et donc le parseur empeche 2 corps d'avoir le meme nom), mais la segmentation fault
+	persiste, et je crois savoir que c'est parce que la mise a jour de l'univers essaye de supprimer un corps qu'elle vient de supprimer...
+	
+	Voila, le probleme est resolu, mais cela n'a pas ete sans mal... Nous avons donc maintenant une fonction plutot particuliere, mais qui fonctionne bien: elle prend un
+	string en argument, et si elle trouve un corps qui a le meme nom que ce string, elle en lance le pointeur. Ce n'est pas tres habituel, mais ca fonctionne bien. Egalement
+	quelques problemes en moisn dans la classe GUI, et la camera qui avance gentiment, a la vaudoise...
+	
+Mardi 13.06.06: 9h de travail
+	Houla! A nouveau, mise en commun... Mais la, la grosse suprise, c'est que une fois terminee, nous avons eu droit a l'affichage des noms des planetes, alors qu'il nous le
+	refusait jusqu'alors...
+	
+Samedi 10.06.06: 0h de travail
+	Ma soeur fete ses 18 ans... ;-)
+	
+Mercredi 14.06.06: 11h de travail
+	Hum... Je copierais 100 fois: 1 est plus petit que 2, 1 est plus petit que 2, 1 est... Bon, nous avons trouve pourquoi la Lune detruisait la Terre :-$ Nous avancons
+	egalement dans l'affichage des distances entre 2 corps, nous voyons des traits s'afficher dans la subwindow, c'est deja bien...
+	
+	Bien, encore quelques petits soucis avec cette @#$*!% de camera... Suivant la position et la visee, certaines fonctions de rotations se plantent completement...
+	
+	Voila, trouve!! Apres quelques discussions avec quelques camarades de kebab et de difficultes, j'ai refait les calculs des fonctions de rotations de notre camera et ai
+	enfin trouve pourquoi cela ne fonctionnait pas comme on croyait le lui demander, c'est bon! Il y avait 2-3 fautes de signes... Recriture des fonctions de zoom, et c'est
+	alors qu'un autre probleme se pose: le zoom etant fait de produits vectoriels et autres calculs a partir des vecteurs, il nous faut faire en sorte que la position ne
+	puisse jamais etre trop proche du point regarde...
+	
+Jeudi 15.06.06 ( j-5 ): 9h de travail
+	Apres quelques petits soucis de mise en commun, notre projet tourne de nouveau sur nos postes de travail respectifs. Les collisions s'ameliorent, la simulation aussi...
+
+Vendredi 16.06.06 ( j-4 ): 12h de travail
+	Les menus dans GLUT. Lors de la crÈation d'un "submenu", j'ai eu pour problËme un "GLUT Fata Error: out of memory". La rÈsolution s'est faite en mettant simplement les
+	lignes qui concernent le menu dans le constructeur, dans une mÈthode de GUI, et de l'appeler depuis le constructeur. Et l‡, Áa marche, aucune idÈe pourquoi Áa marchait pas
+	avant et l‡ oui. J'espËre que c'est compatible avec Linux, et que le problËme ne s'y rÈpËtera pas, Ètant sous Mac. (DiffÈrences entre les fonctionnements de chacun,
+	d'ailleur, on va faire un test tout bientot sur les cosuns'...)
+	Apres quelques essais, je remarque que ce marchait parce que je n'appelais pas la fonction en question... Ahem...
+	La solution fut trouvÈe simplement. Le nom du menu Ètait trop long, et aprËs avoir raccourcit de quelques caractËres, GLUT ne me parle plus de Fatal Error...
+	
+	De mon cote, je suis en cours de reflexion pour utiliser un integrateur pour calculer la mise a jour des corps... Bien, donc, c'est pas terrible, en fait... Ca fonctionne,
+	mais tout fout l'camp en 2 temps 3 mouvements... Deuxieme essai, toujours en prenant des positions precedentes, mais cette fois des vitesses anterieures au leiu des
+	accelerations, pas tellement mieux...
+	
+Samedi 17.06.06 ( j-3 ): 25h de travail
+	Il est 7h50, nous revoici nous revoila... Mars et la Terre explosent toujours avant d'entrer en contact, c'est nul, il faudrait vraiment que ca explose seulement apres
+	etre entrÈ en contact, ca serait physiquement mieux... :-?
+	
+	On avance de plus en plus, les distances commencent a prendre une forme agreable dans notre 2e fenetre...
+	
+	Commentaire retrouvÈ dans le fichier camera.cc: Ya tout pleins de soucis qui ne devraient pas apparaitre normalement... groar! je comprendre plus rien! Pourtant, on se
+	retrouve a chaques fois dans la meme sutuation les fois suivantes que la premire fois... normalement! >.<
+	
+	Sinon... Euh, one moment, please... Donc, voila, ca fonctionne... Nous avons donc maintenant resolu le probleme des destructions de corps pendant l'affichage de la
+	distance dans la 2e fenetre...
+	
+	Oups! On a eu un petit probleme... J'ai essayÈ de passer un lien a mon binom depuis l'ordi des cosuns' sur son portable a cotÈ de moi, je l'ai lancÈ avec ma souris, mais
+	il l'a ratÈ, il n'a pas rÈussi ‡ le rattraper... Sinon, pour parler serieusement, nous sommes en train de faire une subwindow dans la 2e fenetre pour pouvoir afficher la
+	position des corps selectionnÈ...
+	
+Dimanche 18.06.06 ( j-2 ): 0h de travail
+	Anniversaire au pere de l'autre...
+
+Lundi 19.06.06 ( j-1 ): 17h de travail
+	Arrive ce matin une demi-heure plus tot, je sens que nous allons exploser nos heures de travail aujourd'hui... vu que ce soir on dort ici!
+	
+	19h00, de retour du centre-ville ou nous avons fait queleques provisions pour la nuit, nous nous voyons maintenir a l'ecart des salles d'informatique pour un examen
+	initialement prevu de 16h30 a 19h00, change en debut de semaine pour 14h30-19h00, et maintenant, nous devons attendre 19h30-19h45...
+	
+	Bien, nous avancons (du moins, nous essayons, nous nous faisons presque harceler de questions par nos amis)...
+
+Mardi 20.06.06( jour j ): 18h de travail
+	02h00 ( h-22 ): Enfin! Nous venons finir de taper les commentaires, partie tres plaisantes (hum...) du projet...
+	
+	03h00 ( h-21 ): Bon, on commence vraiment a avoir de la peine a reflechir, on va gentiment aller dormir, on reviendra quand on sera frais et dispos...
+	
+	09h00 ( h-15 ): Bonjour bonjour! Nous revoili nous revoila!! Par contre, l'etonnement continue, deja samedi nous pensions que nous aurions affaire a une salle
+	d'informatique pleine de matheux et de physiciens, ou encore lundi matin, et aussi lundi soir... Mais non, les salles sont toujours presques vides...
+
+	15h30 ( h-9 ): Petite mise en commun, rapide et sans probleme, chacun n'ayant touche qu'aux fichiers que l'autre ne touchait pas... C'est bientot l'heure de l'examen des
+	SHS...
+	
+	18h11 ( h-6 ): Nous voici revenu depuis une heure, en pleine forme apres l'examen de SHS... La salle est pleine de matheux et de physicien, la nuit s'annonce longue...
+	Enfin bon, de notre cote on ne fait que fignoler, on n'est pas trop stresse...
+	
+	19h10 ( h-5 ): Bien, une methode de plus dans univers, il est l'heure d'aller manger! A+
+	
+	19h41 ( h-4 ): Voila, on a bien mange, on s'y replonge...
+	
+	20h11 ( h-4 ): Quelques petites modifications dans la classe univers, rien de bien mechant... Nous avons deja quelques fichiers que nous avons termine et que nous ne
+	retoucherons plus, le plus gros du travail qu'il nous reste a faire et d'ecrire la fin des fichiers conception et readme... En fait, cela risque de prendre un peu plus de
+	temps que nous le croyins... Ah! Non, c'est bon, les petits problemes de compatibilite Mac-Linux sont resolus, les fichiers txt s'ouvrent normalement...
+	
+	21h34 ( h-2 ): Le ReadMe avance, mais il est plutot long et laborieux d'expliquer comment ecrire un fichier XML... Ca ira mieux quand ca sera fini...
+	
+	22h01 ( h-2 ): Le ReadMe est termine! Bien, nous allons verifier que tout est la et passer a la partie zappage ;)
+	
+	22h30 ( h-2 ): Nous passons en revue les derniers fignolements, pour qu'on puisse mieux se taper la tete quand on remarquera qu'on a oublie quelque chose, vu que ca risque
+	d'arriver :?
+	
+	22h43 ( h0 ): voila, nous rendons! Amusez-vous bien! ;)
+

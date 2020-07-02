@@ -1,0 +1,27 @@
+<univers>
+	<temps>-1</temps>
+	<pasdetemps>1</pasdetemps>
+	<camera>
+		<oeil>0 0 75</oeil>
+		<visee>-30 -30 0</visee>
+		<verticale>0 1 0</verticale>
+	</camera>
+	<corps>
+		<position>-3 -3 0</position>
+		<vitesse>0 0 0</vitesse>
+		<masse>1e9</masse>
+		<couleur>1 0 0 1</couleur>
+	</corps>
+	<corps>
+		<position>0 2 0</position>
+		<vitesse>-0.2 0 0</vitesse>
+		<masse>1e9</masse>
+		<couleur>0 1 0 1</couleur>
+	</corps>
+	<corps>
+		<position>1 0 0</position>
+		<vitesse>0 -0.2 0</vitesse>
+		<masse>1e9</masse>
+		<couleur>0 0 1 1</couleur>
+	</corps>
+</univers>

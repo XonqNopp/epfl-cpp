@@ -1,0 +1,13 @@
+<univers>
+	<pasdetemps>1.0</pasdetemps>
+	<temps>365</temps>
+	<camera>
+		<oeil>2.0 0.0 0.0</oeil>
+		<visee>0.0 0.0 0.0</visee>
+		<verticale>0.0 0.0 1.0</verticale>
+	</camera>
+	<corps>
+		<masse>1000</masse>
+		<couleur>0.7 0.0 0.8 1.0</couleur>
+	</corps>
+</univers>

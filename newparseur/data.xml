@@ -1,0 +1,78 @@
+<!-- On essaie... -->
+
+<univers>
+      <pasdetemps>
+      10
+      </pasdetemps>
+
+      <!-- Point de vue initial -->
+      <camera>
+          <oeil>
+              0.0 0.0 30.0
+          </oeil>
+          <visee>
+              0.0 0.0 0.0
+          </visee>
+          <verticale>
+              0.0 1.0 0.0
+          </verticale>
+      </camera>
+
+      <!-- Premier corps -->
+      <corps>
+          <type>
+              etoile
+          </type>
+          <position>
+              0.0 5.77350269189626 0.0
+          </position>
+          <vitesse>
+              0.0173205080756888 0.0 0.0
+          </vitesse>
+          <masse>
+              1e8
+          </masse>
+          <couleur>
+              1.0 0.0 0.0 1.0
+          </couleur>
+      </corps>
+
+      <!-- Deuxieme corps -->
+      <corps>
+          <type>
+              planete
+          </type>
+          <position>
+              -5.0 -2.88675134594813 0.0
+          </position>
+          <vitesse>
+              -0.00866025403784439 0.0173205080756888 0.0
+          </vitesse>
+          <masse>
+              1e8
+          </masse>
+          <couleur>
+              0.0 1.0 0.0 1.0
+          </couleur>
+      </corps>
+
+      <!-- Troisieme corps -->
+      <corps>
+          <type>
+              satellite
+          </type>
+          <position>
+              5.0 -2.88675134594813 0.0
+          </position>
+          <vitesse>
+              -0.00866025403784439 -0.0173205080756888 0.0
+          </vitesse>
+          <masse>
+              1e8
+          </masse>
+          <couleur>
+              0.0 0.0 1.0 1.0
+          </couleur>
+      </corps>
+
+  </univers>

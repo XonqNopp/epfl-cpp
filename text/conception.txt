@@ -1,0 +1,33 @@
+	- Parseur -
+Pour la lecture du XML, nous avons creer une classe de parseur. Il agit de la maniere suivante: il met tout le fichier XML dans un string, et apres il cherche la prochaine balise
+(qui est censee etre univers) est depuis la, il appel plein de fonctions. Malheureusement, nous avons realise a une semaine de rendre le projet que cette methode, bien qu'elle
+fonctionne, ne soit pas la meilleure qui soit pour l'ordinateur. La complexite de notre parseur doit etre O(h^3), car il lit une premiere fois le fichier pour le mettre dans un
+string, il le lit ensuite une 2e fois pour verifier l'ordre des balises et il le lit ensuite pour extraire les donnees necessaires...
+	
+	- Asteroide -
+La classe asteroide devrait, informatiquement parlant, heriter de planete. Mais physiquement, c'est inconcevable a nos yeux. C'est pour cette raison que, bien qu'ayant les memes
+attributs supplementaires par rapport a corps, la classe asteroide n'herite pas de la classe planete, mais dircetement de la classe corps.
+
+	- Hierarchie des classes -
+Voir le fichier "schema.txt".
+
+	- Menus de la fenetre des distances -
+La creation du menu est faite d'une maniere peu conventionnelle. La liste de corps est faite a partir d'iterateurs. Or ceux-ci n'ont pas d'ordre en comparaison aux nombres
+entiers, qui sont necessaire pour identifier les menus de GLUT. C'est pourquoi lors de l'initialisation du menu, l'int passe en deuxieme argument du menu est augmente en meme
+temps que l'iterateur lui-meme, a l'interieur de la boucle for. Lorsque le menu est appele, il renvoie l'int en question, qui correspond au corps lors de la creation. Si la
+liste de corps n'a pas ete modifiee, les iterateurs ont gardes le meme ordre, et l'int identifie bien le corps auquel il a ete assigne. Ainsi, on peut retrouver le corps dans le
+menu, en passant des iterateurs aux int, puis de nouveau aux iterateurs.
+Par contre, si la liste de corps est modifiee apres la creation du menu, il doit etre detruit puis reconstruit, afin que les int se reassignent aux bons iterateurs, et que les
+bonnes planetes soient affichees. Ce cas de figure apparait lorsque deux corps entrent en collision, vu qu'il y a ajout d'asteroides a la liste, ainsi qu'un ou plusieurs corps
+de detruits.
+
+	- Parseur: constructeur vs extraire -
+Dans la classe parseur, nous avons choisi de tout faire faire au constructeur, et la methode extraire ne fait que retourner un pointeur sur un dessinable deja connu. En effet,
+cela permet de gagner du temps lors de l'appel de la fonction extraire, tout le travail etant deja fait. Mais alors, me direz-vous, si on veut changer le nom du fichier donne? Eh
+bien, je vous repondrais que votre conception n'est pas otpimale. Oui, nous ne pouvons afficher qu'un seul dessinable, et il n'est donc pas prevu de changer. Toutefois, il est
+bien sur prevu que de tels cas se produisent, et donc, la methode qui permet de modifier le nom du fichier effectue tout ce que le constructeur fait.
+
+	- Univers: le stockage de vecteur3d anterieurs -
+Pour l'utilisation des integrateurs numeriques (mais ca fonctionne pas), nous avons besoin de stocker plusieurs positions, vitesses et accelerations anterieures. Nous avons choisi
+de stocker ces valeurs dans un vector et non dans une liste, malgre le fait que nous pourrions faire des pop_front et des push_back, car nous n'aurions pas pu acceder a tous les
+elements avec des nombres standards, nous aurions du utiliser des iterateurs, et nous ne savons pas comment convertir des entiers en iterateurs...

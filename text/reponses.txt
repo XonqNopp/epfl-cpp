@@ -1,0 +1,62 @@
+P1.1	Les champs d'un vecteur sont x, y et z.
+	Ils sont tous prive, afin d'optimiser les codes des differentes partie des programmes a venir en cas de changement des noms de ces variables.
+	Pour y acceder, nous avons fait les fonctions getx(), gety(), getz() qui permettent d'obtenir respectivement x, y et z.
+	Ces fonctions sont donc de l'ordre publique.
+	Pour definir les champs, nous avons faits les fonctions setx(), sety() et setz() qui elles aussi sont de l'ordre public.
+	
+	Nous avons encore defini les fonctions suivantes, elles aussi publiques:
+	
+	v1.affiche() permet d'afficher le vecteur v1.
+	v1.compare( vecteur v2 ) compare (eh oui) le vecteur v1 avec v2. Cette fonction renvoie vrai si les 3 elements sont pareils.
+	v1.setx( double a ) permet d'attribuer une valeur a au x de v1.
+	v1.sety( double b ) permet d'attribuer une valeur b au y de v1.
+	v1.setz( double c ) permet d'attribuer une valeur c au z de v1.
+	v1.setvecteur( double a, double b, double c ) permet d'attribuer les valeurs a, b, c respectivement aux x, y et z de v1.
+	
+	
+P3.1	Il est preferable de separer le constructeur par defaut du constructeur qui prend 3 double parce qu'il y a un risque que le constructeur affecte par erreur des 0 a
+des vecteurs qui devraient contenir d'autres coordonnees.
+
+P3.2a	Si l'on voulait faire un constructeur en coordonees spheriques, cela impliquerait que nous devrions rajouter 3 double dans la zone privee pour les 2 longueurs et
+l'angle. Un angle est compris entre 0 et 2pi. Ainsi le constructeur devrait prendre en compte les erreurs possibles liees a l'utilisateur et l'execution du programme. Ceci
+alourdirait le programme d'une part, en le ralentissant dans des tests qui sont inutiles en coordonnees cartesiennes.
+
+P3.2b	La difficulte serait que nous nous retrouverions avec 2 constructeurs differents, prenant chacun en compte 3 double. Comment le programme va-t-il savoir a quel
+constructeur nous faisons appel si la nature et le nombre des arguments est le meme pour les 2??
+
+P3.3	Nous avons change la fonction "affiche" en l'operateur "<<", et la fonction "compare" en l'operateur "==", de meme que les fonctions "addition" et "soustraction"
+respectivement en les operateurs "+" et "-". Nous en avons profite pour creer d'autres operateurs mathematiques.
+
+P6.1	Afin d'avoir un controle sur ces deux mŽthodes, qui empeches le compilateur de les creer par defaut. Ainsi, le programme ne peut pas les utiliser si un utilisateur mal informe sur les problemes de pointeurs les appelle.
+
+P7.1	Chaque sous-classe utilisera une methode qui lui sera propre pour l'affichage dans openGL.
+	Dans la sous-classe satellite, il y aura un attribut de plus, definissant la longueur du cote, le satellite etant represente par un cube.
+	Dans la sous-classe planete, il y aura un attribut de plus, definissant la longueur du rayon, la planete etant represente par une sphere.
+	Dans la sous-classe etoile, il y aura 2 attributs de plus, definissant les 2 un rayon, l'etoile etant representee par un tore.
+
+P7.2	La methode parametre_affichege sera publique. Elle sera un void, appele par le fichier qui programme l'interface graphique, dans la partie "dessine",
+	au lieu des lignes de code entre glPushMatrix() et glPopMatrix().
+(bis)	Hem... En fait, nous ne l'appelons plus ici, nous l'appelons a chaque fois que la masse du corps est modifiee, c'est-a-dire dans les constructeurs et dans la methode qui permet de modifier la masse. Et du coup, elle passe protected, vu que nous n'avons plus besoin de l'utiliser en dehors des classes.
+
+P7.3	Le moyen que pour lequel nous avons opte est d'en faire des attributs "static". Ainsi, ces constantes sont telles des variables globales, mais n'Žtant utilisŽes que dans la classe corps dans notre cadre, elles n'y sont prŽsentes qu'ˆ cet endroit.
+
+P9.1:	Nous devons porter une attention particuliere au constructeur de copie et a l'operateur de copie. Si nous creons un univers contenant plusieurs pointeurs sur des corps, mais que ces pointeurs sont intialises dynamiquement (avec les new), nous devons donc avoir les delete correspondant dans le destructeur. Et si nous faisons un operateur de copie ou un constructeur de copie standard (ce qui revient au meme que de ne pas en faire vu qu'ils font partie des methodes que le compilateur genere par defaut si elles sont absentes), nous aurons une copie des pointeurs, c'est-a-dire des adresses ou sont stockees les variables. Mais lorsqu'un de ces deux univers sera detruit, il va faire les delete sur ses elements, et va par consequent supprimer les variables. L'univers restant aura toujours ses pointeurs, mais ils ne seront plus valides car les valeurs sur lesquelles ils pointaient ont ete supprimee.
+
+P11.1:	Avoir une mŽthode "dessine()" par sous-classe, et une mŽthode virtuelle pure "dessine()" dans la super-classe corps.
+
+P11.2:	Corps devenant une classe abstraite, elle ne peut plus tre utilisee comme une classe conventionnelle. Nous ne pouvons l'utiliser que par l'intermediaire de ses sous-classes ou de pointeurs.
+
+P11.3:	Nous avons deja parle de la methode "dessine()", qui est situee dans la classe corps en virtuelle pure. Chaque sous-classe de corps a sa propre maniere d'etre dessinee et nous ne pouvons donc pas ecrire une methode generale qui fonctionne pour tout les corps.
+	Une autre methode que nous avons definie en virtuelle pure dans la classe corps est "parametre_affichage()" qui calcule le rayon optimum pour chaque corps en fonction de sa masse. Les sous-corps etant de formes differentes, les parametres de dessin ne sont pas les memes pour chacun, et les calculs necessaires en sont donnc modifies a chaque fois...
+
+(bis):	Nous avons effectue quelques petits changements dans notre classe corps pour pouvoir afficher les noms de chaque corps, et de ce fait la methode "dessine()" de corps n'est plus que virtuelle, elle n'est plus virtuelle pure...
+
+P11.4:	Nous utilisions une liste de corps pour representer notre univers. Corps etant une classe abstraite, nous n'avons plus le droit de l'utiliser de cette maniere et devons opter pour une liste de pointeurs sur des corps.
+
+P15.1:	Voic l'ensemble des balises XML utilisees: <!-- *commentaire* --> <univers> </univers> <pasdetemps> </pasdetemps> <temps> </temps> <camera> </camera> <oeil> </oeil>
+	<visee> </visee> <verticale> </verticale> <corps> </corps> <type> </type> <nom> </nom> <position> </position> <vitesse> </vitesse> <acceleration> </acceleration> <masse>
+	</masse> <couleur> </couleur>
+
+P15.2:	Le prototype de la fonction "parseur::extraire()" est le suivant: "dessinable* extraire() const;"
+	Cette methode ne fait en fait pas grand chose. La classe parseur contient un pointeur sur un dessinable, qui est construit lors de la construction d'une instance de parseur. La methode "extraire()" ne fait que renvoyer ce pointeur sur un dessinable.
+

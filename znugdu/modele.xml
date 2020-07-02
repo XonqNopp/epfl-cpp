@@ -1,0 +1,19 @@
+<univers>
+	<pasdetemps></pasdetemps>
+	<temps></temps>
+	<camera>
+		<oeil></oeil>
+		<visee></visee>
+		<verticale></verticale>
+	</camera>
+	<corps>
+		<type></type>
+		<nom></nom>
+		<position></position>
+		<vitesse></vitesse>
+		<acceleration></acceleration>
+		<masse></masse>
+		<couleur></couleur>
+	</corps>
+	<!-- d'autres corps si l'envie vous prend... -->
+</univers>

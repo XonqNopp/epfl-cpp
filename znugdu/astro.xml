@@ -1,0 +1,30 @@
+<univers>
+	<temps>-1</temps>
+	<pasdetemps>1</pasdetemps>
+	<camera>
+		<oeil>0 0 150</oeil>
+		<visee>0 15 0</visee>
+		<verticale>0 1 0</verticale>
+	</camera>
+	<corps>
+		<!-- RED -->
+		<position>-20 30 0</position>
+		<vitesse>0.09 -0.09 0</vitesse>
+		<masse>1e9</masse>
+		<couleur>1 0 0 1</couleur>
+	</corps>
+	<corps>
+	<!-- GREEN -->
+		<position>2 -2 0</position>
+		<vitesse>-0.07 0.02 0</vitesse>
+		<masse>1e9</masse>
+		<couleur>0 1 0 1</couleur>
+	</corps>
+	<corps>
+	<!-- BLUE -->
+		<position>2 2 0</position>
+		<vitesse>0.06 0.08 0</vitesse>
+		<masse>1e9</masse>
+		<couleur>0 0 1 1</couleur>
+	</corps>
+</univers>

@@ -1,0 +1,21 @@
+<univers>
+<corps>
+<type>asteroide</type>
+<nom>zgrlmf</nom>
+<position>0.0 0.0 0.0</position>
+<vitesse>0.7 0.7 0.7</vitesse>
+<acceleration>0.0 0.0 0.0</acceleration>
+<masse>1e10</masse>
+<couleur>1.0 1.0 1.0 1.0</couleur>
+<dureedevie>1000</dureedevie>
+</corps>
+<corps>
+<type>planete</type>
+<nom>ihfjkldgafhlidf</nom>
+<position>1.0 1.0 1.0</position>
+<vitesse>0.0 0.0 0.0</vitesse>
+<acceleration>0.0 0.0 0.0</acceleration>
+<masse>1e8</masse>
+<couleur>0.0 1.0 1.0 1.0</couleur>
+</corps>
+</univers>

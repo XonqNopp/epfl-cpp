@@ -1,0 +1,23 @@
+<univers>
+	<pasdetemps>1.0</pasdetemps>
+	<temps>365</temps>
+	<camera>
+		<oeil>2.5 0.0 0.0</oeil>
+		<visee>0.0 0.0 0.0</visee>
+		<verticale>0.0 1.0 0.0</verticale>
+	</camera>
+	<corps>
+		<type>planete</type>
+		<nom>Terre</nom>
+		<position>0.0 0.0 1.0</position>
+		<masse>100000000</masse>
+		<couleur>0.0 0.2 0.8 1.0</couleur>
+	</corps>
+	<corps>
+		<type>satellite</type>
+		<nom>Lune</nom>
+		<position>0.0 0.0 -1.0</position>
+		<masse>100000000</masse>
+		<couleur>1.0 1.0 1.0 1.0</couleur>
+	</corps>
+</univers>
